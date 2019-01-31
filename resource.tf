@@ -18,6 +18,7 @@ resource "aws_instance" "masa_tfe" {
 
   tags {
 	  Name = "Sentinel demo"
+	  User = "Masa"
   }
 }
 
