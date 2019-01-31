@@ -15,6 +15,10 @@ resource "aws_instance" "masa_tfe" {
   provisioner "local-exec" {
   	command = "echo ${aws_instance.masa_tfe.public_dns} > public_dns.txt"
   }
+
+  tags {
+	  Name = "Sentinel demo"
+  }
 }
 
 resource "aws_security_group" "default" {
