@@ -1,6 +1,6 @@
 provider "aws" {
-  # region     = "ap-northeast-1"
-  region = "us-east-1"
+  region     = "ap-northeast-1"
+  #region = "us-east-1"
 }
 
 resource "aws_instance" "masa_tfe" {
