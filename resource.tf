@@ -28,6 +28,10 @@ resource "aws_security_group" "default" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
+  tags {
+	  Name = "Sentinel demo"
+  }
 }
 
 resource "aws_eip" "ip" {
