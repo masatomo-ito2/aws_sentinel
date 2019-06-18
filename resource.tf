@@ -1,24 +1,24 @@
 provider "aws" {
- # region      =  "ap-northeast-1"
- region = "us-east-1" 
+  # region      =  "ap-northeast-1"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "masa_tfe" {
   ami           = "ami-08847abae18baa040"
   instance_type = "t2.micro"
-  key_name = "masa"
+  key_name      = "masa"
 
   # My security setting
-  security_groups = ["${aws_security_group.default.name}"]
-  
+  security_groups = [aws_security_group.default.name]
+
   # Provisioner to store public dns name in file
   provisioner "local-exec" {
-  	command = "echo ${aws_instance.masa_tfe.public_dns} > public_dns.txt"
+    command = "echo ${aws_instance.masa_tfe.public_dns} > public_dns.txt"
   }
 
-  tags {
-	  Name = "Sentinel demo"
-	  User = "Masa"
+  tags = {
+    Name = "Sentinel demo"
+    User = "Masa"
   }
 }
 
@@ -33,16 +33,17 @@ resource "aws_security_group" "default" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
-  tags {
-	  Name = "Sentinel demo"
+
+  tags = {
+    Name = "Sentinel demo"
   }
 }
 
 resource "aws_eip" "ip" {
-	instance = "${aws_instance.masa_tfe.id}"
+  instance = aws_instance.masa_tfe.id
 }
 
 output "ip" {
-	value = "${aws_eip.ip.public_ip}"
+  value = aws_eip.ip.public_ip
 }
+
