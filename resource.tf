@@ -1,6 +1,6 @@
 provider "aws" {
   region      =  "ap-northeast-1"
-  #  region = "us-east-1"
+  #   region = "us-east-1"
 }
 
 resource "aws_instance" "masa_tfe" {
@@ -17,7 +17,7 @@ resource "aws_instance" "masa_tfe" {
   }
 
   tags = {
-    Name = "Sentinel demo"
+    Name = "Sentinel super demo"
     User = "Masa"
     TTL = "1h"
   }
