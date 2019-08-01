@@ -40,11 +40,3 @@ resource "aws_security_group" "default" {
   }
 }
 
-resource "aws_eip" "ip" {
-  instance = aws_instance.masa_tfe.id
-}
-
-output "ip" {
-  value = aws_eip.ip.public_ip
-}
-
