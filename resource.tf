@@ -1,6 +1,6 @@
 provider "aws" {
   region      =  "ap-northeast-1"
-  # region = "us-east-1"
+  #region = "us-east-1"
 }
 
 resource "aws_instance" "masa_tfe" {
@@ -17,8 +17,9 @@ resource "aws_instance" "masa_tfe" {
   }
 
   tags = {
-    Name = "Sentinel demo"
+    Name = "Sentinel super demo"
     User = "Masa"
+    TTL = "1h"
   }
 }
 
@@ -37,13 +38,5 @@ resource "aws_security_group" "default" {
   tags = {
     Name = "Sentinel demo"
   }
-}
-
-resource "aws_eip" "ip" {
-  instance = aws_instance.masa_tfe.id
-}
-
-output "ip" {
-  value = aws_eip.ip.public_ip
 }
 
