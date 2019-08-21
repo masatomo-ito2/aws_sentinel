@@ -18,7 +18,7 @@ resource "aws_instance" "masa_tfe" {
 
   tags = {
     Name = "Sentinel super demo"
-    User = "Masa"
+    Owner = "Masa"
     TTL = "1h"
   }
 }
