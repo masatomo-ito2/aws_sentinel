@@ -1,12 +1,12 @@
 provider "aws" {
-  #region      =  "ap-northeast-1"
-  region = "us-east-1"
+  region      =  "ap-northeast-1"
+  #region = "us-east-1"
 }
 
 resource "aws_instance" "masa_tfe" {
   ami           = "ami-08847abae18baa040"
-  #instance_type = "t2.small"
-  instance_type = "m4.4xlarge"
+  instance_type = "t2.small"
+  #instance_type = "m4.4xlarge"
   key_name      = "masa"
 
   # My security setting
