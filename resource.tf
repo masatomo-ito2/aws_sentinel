@@ -6,7 +6,7 @@ provider "aws" {
 
 resource "aws_instance" "masa_tfe" {
   ami           = "ami-08847abae18baa040"
-  instance_type = "t2.small"
+  instance_type = "t2.nano"
   # instance_type = "m4.4xlarge"
   key_name      = "masa"
 
@@ -19,7 +19,7 @@ resource "aws_instance" "masa_tfe" {
   }
 
   tags = {
-    Name = "Sentinel super demo"
+    Name = "Sentinel demo for nec"
     Owner = "Masa"
     TTL = "1h"
   }
