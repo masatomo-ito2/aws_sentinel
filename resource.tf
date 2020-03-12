@@ -20,7 +20,6 @@ resource "aws_instance" "masa_tfe" {
   tags = {
     Name = "Sentinel demo for nec"
     Owner = "Masa"
-    NewTag = "new tag"
     TTL = "1"
   }
 }
