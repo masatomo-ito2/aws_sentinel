@@ -1,17 +1,17 @@
 provider "aws" {
-  region      =  var.region
+  region = var.region
 }
 
 resource "aws_instance" "masa_tfe" {
-  ami           = "ami-08847abae18baa040"
-  instance_type = var.instance_type
-  key_name      = "masa"
+  ami             = "ami-08847abae18baa040"
+  instance_type   = var.instance_type
+  key_name        = "masa"
   security_groups = [aws_security_group.default.name]
   tags = {
-    Name = "Sentinel demo"
+    Name  = "Sentinel demo"
     Owner = "Masa"
-		Org = "HashiCorp"
-    TTL = "1"
+    Org   = "HashiCorp"
+    TTL   = "1"
   }
 }
 

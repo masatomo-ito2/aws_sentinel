@@ -1,7 +1,7 @@
-variable region {
-	type = string
+variable "region" {
+  type = string
 }
 
-variable instance_type {
-	type = strint
+variable "instance_type" {
+  type = string
 }
