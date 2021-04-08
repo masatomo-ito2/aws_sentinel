@@ -1,25 +1,16 @@
 provider "aws" {
-  region      =  "ap-northeast-1"
-  #region = "us-east-1"
+  region      =  var.region
 }
 
 resource "aws_instance" "masa_tfe" {
   ami           = "ami-08847abae18baa040"
-  instance_type = "t2.medium"
-  # instance_type = "m4.4xlarge"
+  instance_type = var.instance_type
   key_name      = "masa"
-
-  # My security setting
   security_groups = [aws_security_group.default.name]
-
-  # Provisioner to store public dns name in file
-  provisioner "local-exec" {
-    command = "echo ${aws_instance.masa_tfe.public_dns} > public_dns.txt"
-  }
-
   tags = {
     Name = "Sentinel demo"
     Owner = "Masa"
+		Org = "HashiCorp"
     TTL = "1"
   }
 }
