@@ -2,7 +2,6 @@ provider "aws" {
   region = var.region
 }
 
-
 resource "aws_instance" "masa_tfe" {
   ami             = "ami-08847abae18baa040"
   instance_type   = var.instance_type
